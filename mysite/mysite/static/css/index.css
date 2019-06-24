@@ -1,0 +1,27 @@
+.poptrox-popup .caption {
+    height: 100px;
+}
+
+.thumb {
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.login-bar {
+    padding: 0px 15px;
+    display: flex;
+}
+
+.login-bar a {
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.login-bar p {
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+#gallery {
+    margin-left: 5%;
+}

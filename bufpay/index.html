@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+    <head><title>redirect...</title></head>
+    <body>
+        <form id="post_data" action="{{bufpay_api}}" method="post">
+            {% for k, v in data.items() %}
+            <input type="hidden" name="{{k}}" value="{{v}}"/>
+            {% endfor%}
+        </form>
+        <a href="javascript:void(document.getElementById("post_data").submit())">submit</a>
+        <!-- <script>document.getElementById("post_data").submit();</script> -->
+    </body>
+</html>

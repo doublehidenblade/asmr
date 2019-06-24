@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>播放</title>
+    <link rel="stylesheet" href="{{static}}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{static}}/css/play.css"/>
+</head>
+<body>
+
+    <div>
+        <img src="{{media}}/media/{{img}}" alt="" width="100%" height=auto>
+        <div style="margin-left: 25%; margin-top: -15%;">
+            <audio src="{{media}}/media/{{song}}" controls="controls" controlsList="nodownload"></audio>
+            {% if name %}
+                <a href="{% url "makepay" %}?name={{name}}&price={{price}}&order_uid={{order_uid}}" type="button" method="POST">
+                    <img src="{{media}}/media/images/wepay.png" alt="" width="20px" height="20px" id="wepay">
+                    <button type="button" class="btn btn-light" id="unlock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解锁完整版 ¥{{price}}.00
+                    </button>
+                </a>
+            {% else %}
+                {% if order_uid %}
+                    <button type="button" class="btn btn-light disabled" id="unlock" style="left: 45%;">已解锁
+                    </button>
+                {% else %}
+                    <button type="button" class="btn btn-light disabled" id="unlock" style="left: 40%;">登陆后解锁完整版
+                    </button>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

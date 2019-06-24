@@ -1,0 +1,16 @@
+#unlock {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+#wepay {
+    position: absolute;
+    left: 250px;
+    z-index: 1;
+    top: 52%;
+}
+
+.audio {
+    margin-top: -10%;
+}
