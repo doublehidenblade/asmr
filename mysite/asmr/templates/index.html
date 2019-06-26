@@ -4,7 +4,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ASMR home</title>
+    {% if username %}
+        <title>ASMR 首页({{ username }})</title>
+    {% else %}
+        <title>ASMR 首页</title>
+    {% endif %}
     <link rel="shortcut icon" href="{{media}}/media/images/akilogo.png">
     <link rel="stylesheet" href="{{static}}/css/index.css"/>
     <link rel="stylesheet" href="{{static}}/css/bootstrap.min.css"/>
@@ -46,8 +50,19 @@
         </ul>
     </div>
 
+    <div class="sort">
+        <a href="{% url 'index' %}?sort=add_date&username={{ username }}">
+            <button type="button" class="btn btn-light" id="add_date" style="left: 45%;">最新
+            </button>
+        </a>
+        <a href="{% url 'index' %}?sort=vtimes&username={{ username }}">
+            <button type="button" class="btn btn-light" id="vtimes" style="left: 45%;">最热
+            </button>
+        </a>
+    </div>
+
     <div id="gallery">
-        {% for product in products reversed %}
+        {% for product in products %}
             <article class="thumb">
                 {% if username %}
                     {% if product.name in purchased %}
@@ -64,7 +79,7 @@
                         <img src="{{media}}/media/{{product.img}}" alt="" width=100% height=100% />
                     </a>
                 {% endif %}
-                <h2>{{product.name}}</h2>
+                <h2>{{product.name}} (播放数：{{ product.vtimes }})</h2>
             </article>
         {% endfor %}
     </div>
@@ -73,7 +88,7 @@
         <ul id="pages" class="pagination">
             {% if products.has_previous %}
                 <li class="prev">
-                    <a href="{% url 'index' %}?page={{ products.previous_page_number }}&username={{ username }}">previous</a>
+                    <a href="{% url 'index' %}?page={{ products.previous_page_number }}&username={{ username }}">上一页</a>
                 </li>
             {% endif %}
 
@@ -89,13 +104,11 @@
 
             {% if products.has_next %}
                 <li class="next">
-                    <a href="{% url 'index' %}?page={{ products.next_page_number }}&username={{ username }}">next</a>
+                    <a href="{% url 'index' %}?page={{ products.next_page_number }}&username={{ username }}">下一页</a>
                 </li>
             {% endif %}
         </ul>
     </span>
-
-
 
 </body>
 </html>

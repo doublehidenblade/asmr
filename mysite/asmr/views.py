@@ -50,7 +50,8 @@ def register(request):
 
 
 def login(request):
-    product_list = product.objects.order_by('add_date')
+    sort = request.GET.get('sort')
+    product_list = product.objects.order_by(sort).reverse()
     paginator = Paginator(product_list, 3)
     page = request.GET.get('page')
     dis_range = range(1, paginator.num_pages + 1)
@@ -88,8 +89,9 @@ def login(request):
 
 
 def index(request):
+    sort = request.GET.get('sort')
     username = request.GET.get('username')
-    product_list = product.objects.order_by('add_date')
+    product_list = product.objects.order_by(sort).reverse()
     paginator = Paginator(product_list, 3)
     page = request.GET.get('page')
     dis_range = range(1, paginator.num_pages + 1)
@@ -181,6 +183,10 @@ def play(request):
     name = request.GET.get("name")
     price = request.GET.get("price")
     order_uid = request.GET.get("order_uid")
+    # update visit times
+    visited = product.objects.get(name=name)
+    visited.vtimes += 1
+    visited.save()
     if name:
         return render(request, 'play.html', {'song': song, 'img': img, 'name': name, 'price': price, 'order_uid': order_uid})
     return render(request, 'play.html', {'song': song, 'img': img, 'order_uid': order_uid})

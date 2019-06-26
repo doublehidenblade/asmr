@@ -11,6 +11,7 @@ class product(models.Model):
     preview = models.FileField(upload_to="previews", null=True)
     actual = models.FileField(upload_to="actuals", null=True)
     add_date = models.DateTimeField('保存日期',default = timezone.now)
+    vtimes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
