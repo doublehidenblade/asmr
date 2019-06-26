@@ -1,4 +1,5 @@
 from django.db import models
+import django.utils.timezone as timezone
 
 # Create your models here.
 
@@ -9,6 +10,7 @@ class product(models.Model):
     img = models.ImageField(upload_to="images", null=True, blank=True)
     preview = models.FileField(upload_to="previews", null=True)
     actual = models.FileField(upload_to="actuals", null=True)
+    add_date = models.DateTimeField('保存日期',default = timezone.now)
 
     def __str__(self):
         return self.name
@@ -24,7 +26,7 @@ class subuser(models.Model):
 
 
 class order(models.Model):
-    name = models.CharField(max_length=30, unique=True, default="")
+    name = models.CharField(max_length=30, default="")
     order_id = models.CharField(max_length=90)
     order_uid = models.CharField(max_length=30)
     price = models.IntegerField(default=1)

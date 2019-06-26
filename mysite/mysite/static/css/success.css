@@ -1,0 +1,17 @@
+#main {
+    text-align: center;
+    display: block;
+    font-size: 30px;
+}
+
+#check {
+    margin-top: 5%;
+    width: 50%;
+    height: auto;
+}
+
+@media screen and (max-width: 1280px) {
+    #main{
+        font-size: 40px;
+    }
+}

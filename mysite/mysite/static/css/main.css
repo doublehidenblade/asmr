@@ -193,16 +193,16 @@ input, select, textarea {
 	body, input, select, textarea {
 		color: #a0a0a1;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-size: 15pt;
+		font-size: 10pt;
 		font-weight: 300;
 		letter-spacing: 0.025em;
 		line-height: 1.65;
 	}
 
-		@media screen and (max-width: 1680px) {
+		@media screen and (max-width: 1280px) {
 
 			body, input, select, textarea {
-				font-size: 11pt;
+				font-size: 20pt;
 			}
 
 		}
@@ -1706,7 +1706,7 @@ input, select, textarea {
 			transition-delay: 2.525s;
 			height: calc(40vh - 2em);
 			min-height: 20em;
-			width: 23%;
+			/*width: 23%;*/
 		}
 
 			#gallery .thumb:nth-child(1) {
@@ -1801,9 +1801,12 @@ input, select, textarea {
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
 				height: calc(40vh - 2em);
-				min-height: 20em;
+				/*min-height: 20em;*/
+				/*width: 40vw;*/
+    			/*height: auto;*/
+				height: 25em;
+    			min-height: 20em;
 				width: 23%;
-    			height: auto;
 			}
 
 				#gallery .thumb:nth-child(1) {
@@ -1878,9 +1881,12 @@ input, select, textarea {
 				-webkit-transition-delay: 1.625s;
 				-ms-transition-delay: 1.625s;
 				transition-delay: 1.625s;
-				height: calc(40vh - 2em);
-				min-height: 20em;
-				width: 50%;
+				/*height: calc(40vh - 2em);*/
+				/*min-height: 20em;*/
+				/*width: 40vw;*/
+				height: 10em;
+    			min-height: 15em;
+    			width: 30%;
 			}
 
 				#gallery .thumb:nth-child(1) {
@@ -1935,9 +1941,8 @@ input, select, textarea {
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
 				height: calc(28.57143vh - 1.33333em);
-				min-height: 18em;
-				/*width: 50%;*/
-				width: 30%;
+				min-height: 15em;
+				width: 40vw;
 				height: auto;
 			}
 

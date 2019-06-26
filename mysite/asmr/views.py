@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 import requests
 import hashlib
 from django.views.decorators.csrf import csrf_exempt
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 import datetime
 import random
 from .models import product
@@ -49,7 +50,18 @@ def register(request):
 
 
 def login(request):
-    product_list = product.objects.all()
+    product_list = product.objects.order_by('add_date')
+    paginator = Paginator(product_list, 3)
+    page = request.GET.get('page')
+    dis_range = range(1, paginator.num_pages + 1)
+    try:
+        products = paginator.page(page)  # contacts为Page对象！
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        products = paginator.page(paginator.num_pages)
     if request.method == "POST":
         login_form = UserForm(request.POST)
         if login_form.is_valid():
@@ -63,7 +75,8 @@ def login(request):
                     namelist = []
                     for item in purchasedlist:
                         namelist.append(item.name)
-                    return render(request, 'index.html', {'products': product_list, 'purchased': namelist, 'user': user})
+                    return render(request, 'index.html', {'products': products, 'purchased': namelist, 'username': user.username, 'dis_range': dis_range})
+
                 else:
                     message = "密码不正确！"
             except:
@@ -75,8 +88,20 @@ def login(request):
 
 
 def index(request):
-    product_list = product.objects.all()
-    return render(request, 'index.html', {'products': product_list, 'user': None})
+    username = request.GET.get('username')
+    product_list = product.objects.order_by('add_date')
+    paginator = Paginator(product_list, 3)
+    page = request.GET.get('page')
+    dis_range = range(1, paginator.num_pages + 1)
+    try:
+        products = paginator.page(page)  # contacts为Page对象！
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        products = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        products = paginator.page(paginator.num_pages)
+    return render(request, 'index.html', {'products': products, 'username': username, 'dis_range': dis_range})
 
 
 def makepay(request):
@@ -93,12 +118,12 @@ def makepay(request):
         randomNum = random.randint(0, 100)  # 生成的随机整数n，其中0<=n<=100
         if randomNum <= 10:
             randomNum = str(0) + str(randomNum)
-        uniqueNum = str(nowTime) + str(randomNum) # 15位
+        uniqueNum = str(nowTime) + str(randomNum) # 16位
         return uniqueNum
 
     def makeSign(*p):
         return hashlib.md5(u''.join(p).encode('utf8')).hexdigest().lower()
-    order_id = name + getUnique()
+    order_id = name + getUnique() # lesson52019062509491150
     pay_data = {
         'name': name,
         'pay_type': 'wechat',
@@ -159,3 +184,28 @@ def play(request):
     if name:
         return render(request, 'play.html', {'song': song, 'img': img, 'name': name, 'price': price, 'order_uid': order_uid})
     return render(request, 'play.html', {'song': song, 'img': img, 'order_uid': order_uid})
+
+
+def success(request):
+    return render(request, 'success.html')
+
+
+def personal(request):
+    username = request.GET.get("username")
+    product_list = product.objects.order_by('add_date')
+    # paginator = Paginator(product_list, 3)
+    # page = request.GET.get('page')
+    # try:
+    #     products = paginator.page(page)  # contacts为Page对象！
+    # except PageNotAnInteger:
+    #     # If page is not an integer, deliver first page.
+    #     products = paginator.page(1)
+    # except EmptyPage:
+    #     # If page is out of range (e.g. 9999), deliver last page of results.
+    #     products = paginator.page(paginator.num_pages)
+    purchased = order.objects.filter(order_uid=username)
+    purchasedlist = list(purchased)
+    namelist = []
+    for item in purchasedlist:
+        namelist.append(item.name)
+    return render(request, 'personal.html', {'products': product_list, 'purchased': namelist, 'username': username})

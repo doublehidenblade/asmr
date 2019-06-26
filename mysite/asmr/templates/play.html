@@ -11,7 +11,7 @@
 
     <div>
         <img src="{{media}}/media/{{img}}" alt="" width="100%" height=auto>
-        <div style="margin-left: 25%; margin-top: -15%;">
+        <div style="margin-top: -25%; text-align: center;">
             <audio src="{{media}}/media/{{song}}" controls="controls" controlsList="nodownload"></audio>
             {% if name %}
                 <a href="{% url "makepay" %}?name={{name}}&price={{price}}&order_uid={{order_uid}}" type="button" method="POST">
