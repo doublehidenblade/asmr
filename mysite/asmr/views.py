@@ -94,6 +94,11 @@ def login(request):
 def index(request):
     sort = request.GET.get('sort')
     username = request.GET.get('username')
+    purchased = order.objects.filter(order_uid=username)
+    purchasedlist = list(purchased)
+    namelist = []
+    for item in purchasedlist:
+        namelist.append(item.name)
     if sort:
         product_list = product.objects.order_by(sort).reverse()
     else:
@@ -109,7 +114,7 @@ def index(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         products = paginator.page(paginator.num_pages)
-    return render(request, 'index.html', {'products': products, 'username': username, 'dis_range': dis_range})
+    return render(request, 'index.html', {'products': products, 'purchased': namelist, 'username': username, 'dis_range': dis_range})
 
 
 def makepay(request):
@@ -119,25 +124,25 @@ def makepay(request):
     if request.method == "GET":
         name = request.GET.get("name")
         price = request.GET.get("price")
-        order_uid = request.GET.get("order_uid")
+        order_uid = request.GET.get("username")
 
     def getUnique():
         nowTime = datetime.datetime.now().strftime("%Y%m%d%H%M%S")  # 生成当前时间
         randomNum = random.randint(0, 100)  # 生成的随机整数n，其中0<=n<=100
         if randomNum <= 10:
             randomNum = str(0) + str(randomNum)
-        uniqueNum = str(nowTime) + str(randomNum) # 16位
+        uniqueNum = str(nowTime) + str(randomNum)  # 16位
         return uniqueNum
 
     def makeSign(*p):
         return hashlib.md5(u''.join(p).encode('utf8')).hexdigest().lower()
     order_id = name + getUnique() # lesson52019062509491150
     pay_data = {
-        'name': name,
+        'name': name, # product.name
         'pay_type': 'wechat',
         'price': price,
-        'order_id': order_id, #name + purchase time
-        'order_uid': order_uid, # ex. 'hi@sideidea.com'
+        'order_id': order_id, # name + purchase time
+        'order_uid': order_uid, # username
         'notify_url': 'http://sideidea.com/asmr/handler', #必填， 支付成功后回调地址
         'return_url': 'http://sideidea.com/asmr/success' #选填， 支付城后前台跳转地址
     }
@@ -188,14 +193,14 @@ def play(request):
     img = request.GET.get("img")
     name = request.GET.get("name")
     price = request.GET.get("price")
-    order_uid = request.GET.get("order_uid")
+    username = request.GET.get("username")
     # update visit times
     visited = product.objects.get(name=name)
     visited.vtimes += 1
     visited.save()
     if name:
-        return render(request, 'play.html', {'song': song, 'img': img, 'name': name, 'price': price, 'order_uid': order_uid})
-    return render(request, 'play.html', {'song': song, 'img': img, 'order_uid': order_uid})
+        return render(request, 'play.html', {'song': song, 'img': img, 'name': name, 'price': price, 'username': username})
+    return render(request, 'play.html', {'song': song, 'img': img, 'username': username})
 
 
 def success(request):

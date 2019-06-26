@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% if username %}
+    {% if username and username != 'None' %}
         <title>ASMR 个人({{ username }})</title>
     {% else %}
         <title>ASMR 个人(未登陆)</title>
@@ -33,7 +33,7 @@
           <li role="presentation" class="active"><a href="#">个人收藏</a></li>
           <li role="presentation"><a href="#">联系我们</a></li>
             <span class="login-bar">
-                {% if username %}
+                {% if username and username != 'None' %}
                     <p>欢迎，{{username}}</p>
                     <a href="{% url "index" %}">登出</a>
                 {% else %}
@@ -47,12 +47,12 @@
         </ul>
     </div>
 
-    {% if username %}
+    {% if username and username != 'None' %}
         <div id="gallery">
             {% for product in products %}
                 {% if product.name in purchased %}
                     <article class="thumb">
-                            <a href="{% url 'play' %}?song={{product.actual}}&img={{product.img}}&order_uid={{username}}" data-poptrox="iframe,600x500">
+                            <a href="{% url 'play' %}?song={{product.actual}}&img={{product.img}}&username={{username}}&name={{ product.name }}" data-poptrox="iframe,600x500">
                                 <img src="{{media}}/media/{{product.img}}" alt="" width=100% height=100% />
                             </a>
                         <h2>{{product.name}}</h2>

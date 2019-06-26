@@ -184,7 +184,7 @@
             })();
 
             var pool_handler = setInterval(function () {
-                $jsonp.send("https://bufpay.com/api/query/899e4c2393a947c38d66636b0eefd833?callback=cb&_=" + new Date().getTime(), {
+                $jsonp.send("https://bufpay.com/api/query/4c22179bcbdc4cc7970a42de6ffdf65d?callback=cb&_=" + new Date().getTime(), {
                     callbackName: 'cb',
                     onSuccess: function(ret){
                         if(ret.status=='payed' || ret.status=='success' || ret.status=='fee_error') {

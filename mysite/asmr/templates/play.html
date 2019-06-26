@@ -13,14 +13,14 @@
         <img src="{{media}}/media/{{img}}" alt="" width="100%" height=auto>
         <div style="margin-top: -25%; text-align: center;">
             <audio src="{{media}}/media/{{song}}" controls="controls" controlsList="nodownload"></audio>
-            {% if name %}
-                <a href="{% url "makepay" %}?name={{name}}&price={{price}}&order_uid={{order_uid}}" type="button" method="POST">
+            {% if price %}
+                <a href="{% url "makepay" %}?name={{name}}&price={{price}}&username={{username}}" type="button" method="POST">
                     <img src="{{media}}/media/images/wepay.png" alt="" width="20px" height="20px" id="wepay">
                     <button type="button" class="btn btn-light" id="unlock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;解锁完整版 ¥{{price}}.00
                     </button>
                 </a>
             {% else %}
-                {% if order_uid %}
+                {% if username and username != 'None' %}
                     <button type="button" class="btn btn-light disabled" id="unlock" style="left: 45%;">已解锁
                     </button>
                 {% else %}

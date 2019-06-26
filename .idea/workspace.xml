@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae7acc80-7657-4b7d-b0a1-cf2297a3ea0f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/mysite/asmr/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asmr/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/asmr/templates/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asmr/templates/pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/asmr/templates/personal.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asmr/templates/personal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/asmr/templates/play.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asmr/templates/play.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/asmr/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/asmr/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysite/asmr/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+            <state relative-caret-position="194">
+              <caret line="196" column="121" selection-start-line="196" selection-start-column="121" selection-end-line="196" selection-end-column="121" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -53,10 +58,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="56" column="12" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+            <state relative-caret-position="474">
+              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -66,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/personal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state relative-caret-position="243">
+              <caret line="51" column="38" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -75,10 +80,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/play.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="465">
+              <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#966#972#0#HTML" expanded="true" />
+                <element signature="e#972#978#0#HTML" expanded="true" />
+                <element signature="e#978#984#0#HTML" expanded="true" />
+                <element signature="e#984#990#0#HTML" expanded="true" />
+                <element signature="e#990#996#0#HTML" expanded="true" />
+                <element signature="e#996#1002#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,16 +152,16 @@
         <option value="$PROJECT_DIR$/mysite/mysite/static/css/success.css" />
         <option value="$PROJECT_DIR$/mysite/asmr/urls.py" />
         <option value="$PROJECT_DIR$/mysite/mysite/static/css/personal.css" />
-        <option value="$PROJECT_DIR$/mysite/asmr/templates/play.html" />
         <option value="$PROJECT_DIR$/mysite/mysite/static/css/index.css" />
-        <option value="$PROJECT_DIR$/mysite/asmr/templates/personal.html" />
         <option value="$PROJECT_DIR$/mysite/asmr/templates/login.html" />
         <option value="$PROJECT_DIR$/mysite/asmr/templates/register.html" />
         <option value="$PROJECT_DIR$/mysite/asmr/templates/success.html" />
         <option value="$PROJECT_DIR$/mysite/asmr/models.py" />
         <option value="$PROJECT_DIR$/mysite/mysite/settings.py" />
-        <option value="$PROJECT_DIR$/mysite/asmr/templates/index.html" />
+        <option value="$PROJECT_DIR$/mysite/asmr/templates/play.html" />
         <option value="$PROJECT_DIR$/mysite/asmr/views.py" />
+        <option value="$PROJECT_DIR$/mysite/asmr/templates/personal.html" />
+        <option value="$PROJECT_DIR$/mysite/asmr/templates/index.html" />
       </list>
     </option>
   </component>
@@ -201,27 +213,6 @@
               <item name="asmr" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="asmr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asmr" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asmr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asmr" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="asmr" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asmr" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -260,12 +251,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561426928001</updated>
-      <workItem from="1561426932036" duration="12674000" />
+      <workItem from="1561426932036" duration="17003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12674000" />
+    <option name="totallyTimeSpent" value="17003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="0" />
@@ -339,23 +330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/pay.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -387,22 +361,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/pay.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/play.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="465">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#966#972#0#HTML" expanded="true" />
+            <element signature="e#972#978#0#HTML" expanded="true" />
+            <element signature="e#978#984#0#HTML" expanded="true" />
+            <element signature="e#984#990#0#HTML" expanded="true" />
+            <element signature="e#990#996#0#HTML" expanded="true" />
+            <element signature="e#996#1002#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/asmr/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="56" column="12" lean-forward="true" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+        <state relative-caret-position="474">
+          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#a#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -410,8 +408,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mysite/asmr/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+        <state relative-caret-position="194">
+          <caret line="196" column="121" selection-start-line="196" selection-start-column="121" selection-end-line="196" selection-end-column="121" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
