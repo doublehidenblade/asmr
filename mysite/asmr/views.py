@@ -51,7 +51,10 @@ def register(request):
 
 def login(request):
     sort = request.GET.get('sort')
-    product_list = product.objects.order_by(sort).reverse()
+    if sort:
+        product_list = product.objects.order_by(sort).reverse()
+    else:
+        product_list = product.objects.order_by('add_date').reverse()
     paginator = Paginator(product_list, 3)
     page = request.GET.get('page')
     dis_range = range(1, paginator.num_pages + 1)
@@ -91,7 +94,10 @@ def login(request):
 def index(request):
     sort = request.GET.get('sort')
     username = request.GET.get('username')
-    product_list = product.objects.order_by(sort).reverse()
+    if sort:
+        product_list = product.objects.order_by(sort).reverse()
+    else:
+        product_list = product.objects.order_by('add_date').reverse()
     paginator = Paginator(product_list, 3)
     page = request.GET.get('page')
     dis_range = range(1, paginator.num_pages + 1)
