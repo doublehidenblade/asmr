@@ -180,8 +180,13 @@ def handler(request):
         print(price)
         print(pay_price)
         print(sign)
-        neworder = order(name=order_id[:-16], order_id=order_id, order_uid=order_uid, price=price, pay_price=price, sign=sign)
+        name = order_id[:-16]
+        neworder = order(name=name, order_id=order_id, order_uid=order_uid, price=price, pay_price=price, sign=sign)
         neworder.save()
+        # update visit times
+        visited = product.objects.get(name=name)
+        visited.vtimes += 1
+        visited.save()
         return HttpResponse("received a post.")
     if request.method == 'GET':
         return HttpResponse("received a get.")
@@ -194,10 +199,6 @@ def play(request):
     name = request.GET.get("name")
     price = request.GET.get("price")
     username = request.GET.get("username")
-    # update visit times
-    visited = product.objects.get(name=name)
-    visited.vtimes += 1
-    visited.save()
     if name:
         return render(request, 'play.html', {'song': song, 'img': img, 'name': name, 'price': price, 'username': username})
     return render(request, 'play.html', {'song': song, 'img': img, 'username': username})
