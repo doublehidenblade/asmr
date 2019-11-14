@@ -1,20 +1,3 @@
 # asmr
 
-source /var/www/html/django/.py3env/bin/activate
-
-
-vim /etc/httpd/conf.d/django.conf
-
-source /etc/httpd/conf.d/django.conf
-
-vim /etc/httpd/conf.d/httpd.conf
-
-source /etc/httpd/conf.d/httpd.conf
-
-
-service httpd restart
-
-python3 manage.py collectstatic
-
-python3 manage.py runserver
-
+An experimental project to use wechat pay without using its API. The user browses ASMR content and click to generate a QR code, scans it with wechat pay on their phone to make a payment. The seller's phone receives the payment message and is intercepted by an Android app on the phone. The app reads the payment information and sends the info to the website and unlocks the content for the user. 
