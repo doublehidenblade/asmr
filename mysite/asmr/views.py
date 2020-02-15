@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 import requests
 import hashlib
 from django.views.decorators.csrf import csrf_exempt
@@ -143,8 +143,8 @@ def makepay(request):
         'price': price,
         'order_id': order_id, # name + purchase time
         'order_uid': order_uid, # username
-        'notify_url': 'http://sideidea.com/asmr/handler', #必填， 支付成功后回调地址
-        'return_url': 'http://sideidea.com/asmr/success' #选填， 支付城后前台跳转地址
+        'notify_url': 'http://akiqiushui.com/handler/', #必填， 支付成功后回调地址
+        'return_url': 'http://akiqiushui.com/success/' #选填， 支付城后前台跳转地址
     }
     pay_data['sign'] = makeSign(
         pay_data['name'],
@@ -158,13 +158,14 @@ def makepay(request):
     )
     resp = requests.post('https://bufpay.com/api/pay/97008', data=pay_data)
     # redirect to payment page
-    def modify_text():
-        with open('asmr/templates/pay.html', "r+") as f:
-            f.seek(0)
-            f.truncate()  # 清空文件
-            f.write(resp.text)
-    modify_text()
-    return render(request, 'pay.html')
+    # def modify_text():
+    #     with open('asmr/templates/pay.html', "r+") as f:
+    #         f.seek(0)
+    #         f.truncate()  # 清空文件
+    #         f.write(resp.text)
+    # modify_text()
+    return HttpResponse(resp)
+    # return render(request, 'pay.html')
 
 
 @csrf_exempt
@@ -204,6 +205,7 @@ def play(request):
     return render(request, 'play.html', {'song': song, 'img': img, 'username': username})
 
 
+@csrf_exempt
 def success(request):
     return render(request, 'success.html')
 
